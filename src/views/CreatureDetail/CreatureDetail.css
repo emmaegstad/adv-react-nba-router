@@ -1,0 +1,21 @@
+.CreatureDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 255, 0.336);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.detail-title {
+  font-size: 3vh;
+}
+
+.detail-image {
+  width: 10vw;
+  border-radius: 50%;
+}

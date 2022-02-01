@@ -1,6 +1,6 @@
 import './CreatureDetail.css';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchCreatureById } from '../../services/creatures';
 
 export default function CreatureDetail() {
@@ -12,7 +12,6 @@ export default function CreatureDetail() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchCreatureById(id);
-      console.log(data.data);
       setCreature(data.data);
       setLoading(false);
     };
@@ -21,5 +20,22 @@ export default function CreatureDetail() {
 
   if (loading && <p className="loader">Loading...</p>);
 
-  return <div className="CreatureDetail">{creature.name}</div>;
+  return (
+    <div className="CreatureDetail">
+      <h3 className="detail-title">{creature.name}</h3>
+      <img className="detail-image" src={creature.image} alt={name} />
+      <p className="detail-effect">Effect: {creature.cooking_effect}</p>
+      <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
+      <p className="detail-description">{creature.description}</p>
+      {creature.common_locations && (
+        <div className="detail-locations">
+          <p className="detail-locations_title">Common Locations:</p>
+          {creature.common_locations.map((location) => {
+            return <p key={location}>{location}</p>;
+          })}
+        </div>
+      )}
+      <Link to="/">Back to Home</Link>
+    </div>
+  );
 }
