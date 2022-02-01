@@ -2,20 +2,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 15vw;
+  width: 30vw;
   font-size: 2vh;
   padding: 2vh;
   border-radius: 10px;
-  background-color: rgba(0, 0, 255, 0.336);
+  background-color: #543b25c8;
   text-align: center;
-  text-transform: capitalize;
+  margin-bottom: 5vh;
+  color: white;
 }
 
 .detail-title {
-  font-size: 3vh;
+  text-transform: capitalize;
+  font-size: 5vh;
+  font-family: 'Gideon Roman', cursive;
+  color: white;
+  margin: 2.5vh;
 }
 
 .detail-image {
-  width: 10vw;
+  width: 15vw;
   border-radius: 50%;
+  border: 2px solid white;
+}
+
+.detail-effect_cooking {
+  text-transform: capitalize;
+}
+
+.CreatureDetail a {
+  margin: 2vh;
+  font-size: 2.5vh;
+  color: white;
+}
+
+.bold {
+  font-weight: bold;
 }

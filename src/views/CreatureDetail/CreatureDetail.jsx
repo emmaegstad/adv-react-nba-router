@@ -24,12 +24,21 @@ export default function CreatureDetail() {
     <div className="CreatureDetail">
       <h3 className="detail-title">{creature.name}</h3>
       <img className="detail-image" src={creature.image} alt={name} />
-      <p className="detail-effect">Effect: {creature.cooking_effect}</p>
-      <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
-      <p className="detail-description">{creature.description}</p>
+
+      <p className="detail-effect">
+        <span className="bold">Effects:</span>
+        <p className="detail-effect_cooking">{creature.cooking_effect}</p>
+        <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
+      </p>
+
+      <p className="detail-description">
+        <span className="bold">Description:</span>
+        <p>{creature.description}</p>
+      </p>
+
       {creature.common_locations && (
         <div className="detail-locations">
-          <p className="detail-locations_title">Common Locations:</p>
+          <p className="bold">Common Locations:</p>
           {creature.common_locations.map((location) => {
             return <p key={location}>{location}</p>;
           })}

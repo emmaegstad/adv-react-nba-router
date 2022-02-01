@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap');
+
 body {
-  background-color: aliceblue;
+  background-color: #23d38a62;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: monospace;
+}
+
+.loader {
+  text-align: center;
+  font-family: 'Gideon Roman', cursive;
+  font-size: 3vh;
+  margin: 10vh;
 }

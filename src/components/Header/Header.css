@@ -1,0 +1,10 @@
+.Header {
+  font-family: 'Gideon Roman', cursive;
+  margin: 2vh;
+}
+
+.Header a {
+  text-decoration: none;
+  color: #543b25;
+  font-size: 4vh;
+}
