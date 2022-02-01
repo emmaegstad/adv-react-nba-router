@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from './components/Header/Header';
 import CreatureList from './views/CreatureList/CreatureList';
+import CreatureDetail from './views/CreatureDetail/CreatureDetail';
 import { fetchCreatures } from './services/creatures';
 
 function App() {
@@ -21,8 +23,18 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <CreatureList creatures={creatures} />
+      <Router>
+        <Header />
+
+        <Switch>
+          <Route exact path="/">
+            <CreatureList creatures={creatures} />
+          </Route>
+          <Route path="/creature/:id">
+            <CreatureDetail />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
