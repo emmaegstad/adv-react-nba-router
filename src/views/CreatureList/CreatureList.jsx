@@ -1,5 +1,5 @@
 import React from 'react';
-import './CreatureList';
+import './CreatureList.css';
 import CreatureCard from '../../components/CreatureCard/CreatureCard';
 
 export default function CreatureList({ creatures }) {

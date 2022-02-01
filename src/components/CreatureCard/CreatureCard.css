@@ -1,0 +1,34 @@
+.CreatureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 15vw;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 255, 0.336);
+}
+
+.card-title {
+  text-transform: capitalize;
+  font-size: 3vh;
+}
+
+.card-image {
+  width: 10vw;
+  border-radius: 50%;
+}
+
+.CreatureCard p {
+  margin: 0.5vh;
+}
+
+.card-effect {
+  text-transform: capitalize;
+}
+
+.card-hearts {
+}
+
+.card-description {
+}
