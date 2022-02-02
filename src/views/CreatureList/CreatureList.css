@@ -1,5 +1,11 @@
 .CreatureList {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.creature-list_cards {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2vw;

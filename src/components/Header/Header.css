@@ -1,6 +1,9 @@
 .Header {
   font-family: 'Gideon Roman', cursive;
-  margin: 2vh;
+}
+
+.Header h1 {
+  margin: 6vh 0 3vh 0;
 }
 
 .Header a {

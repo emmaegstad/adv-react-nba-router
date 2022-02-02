@@ -4,20 +4,31 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom/cjs/rea
 import Header from './components/Header/Header';
 import CreatureList from './views/CreatureList/CreatureList';
 import CreatureDetail from './views/CreatureDetail/CreatureDetail';
-import { fetchCreatures } from './services/creatures';
+import { fetchAllCreatures, fetchFoodCreatures, fetchNonFoodCreatures } from './services/creatures';
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [creatures, setCreatures] = useState([]);
+  const [type, setType] = useState('all');
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCreatures();
-      setCreatures(data);
-      setLoading(false);
+      if (type === 'all') {
+        const data = await fetchAllCreatures();
+        setCreatures(data);
+        setLoading(false);
+      } else if (type === 'food') {
+        const data = await fetchFoodCreatures();
+        setCreatures(data);
+        setLoading(false);
+      } else {
+        const data = await fetchNonFoodCreatures();
+        setCreatures(data);
+        setLoading(false);
+      }
     };
     fetchData();
-  }, []);
+  }, [type]);
 
   if (loading) return <p className="loader">Loading...</p>;
 
@@ -28,7 +39,7 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <CreatureList creatures={creatures} />
+            <CreatureList creatures={creatures} type={type} setType={setType} />
           </Route>
           <Route path="/creature/:id">
             <CreatureDetail />
