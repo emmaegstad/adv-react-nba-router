@@ -40,7 +40,7 @@ function App() {
             <CreatureList creatures={creatures} type={type} setType={setType} />
           </Route>
           <Route path="/creature/:id">
-            <CreatureDetail type={type} />
+            <CreatureDetail />
           </Route>
         </Switch>
       </Router>

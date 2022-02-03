@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchCreatureById } from '../../services/creatures';
 
-export default function CreatureDetail({ type }) {
+export default function CreatureDetail() {
   const params = useParams();
   const id = params.id;
-  const [loading, setLoading] = useState(true);
   const [creature, setCreature] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,17 +26,17 @@ export default function CreatureDetail({ type }) {
       <img className="detail-image" src={creature.image} alt={name} />
 
       {creature.cooking_effect && (
-        <p className="detail-effect">
+        <div className="detail-effect">
           <span className="bold">Effects:</span>
           <p className="detail-effect_cooking">{creature.cooking_effect}</p>
           <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
-        </p>
+        </div>
       )}
 
-      <p className="detail-description">
+      <div className="detail-description">
         <span className="bold">Description:</span>
         <p>{creature.description}</p>
-      </p>
+      </div>
 
       {creature.common_locations && (
         <div className="detail-locations">
