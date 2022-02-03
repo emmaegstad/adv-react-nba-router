@@ -1,0 +1,40 @@
+.CreatureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 15vw;
+  font-size: 2vh;
+  padding: 2vh;
+  border-radius: 10px;
+  background-color: #008275bf;
+  text-align: center;
+}
+
+.card-title {
+  text-transform: capitalize;
+  font-size: 3vh;
+  font-family: 'Gideon Roman', cursive;
+  color: white;
+  margin: 1vh;
+}
+
+.card-image {
+  width: 10vw;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+.CreatureCard p {
+  margin: 2vh;
+  font-size: 2vh;
+  color: white;
+}
+
+.card-effect {
+  text-transform: capitalize;
+}
