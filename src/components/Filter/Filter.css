@@ -3,6 +3,20 @@
   flex-direction: column;
   align-items: center;
   gap: 1vh;
-  margin-bottom: 3vh;
+  margin: 2vh 0 4vh 0;
   color: white;
+}
+
+.filter-label {
+  font-size: 2vh;
+  font-family: 'Gideon Roman', cursive;
+  text-transform: uppercase;
+  display: none;
+}
+
+.filter-select {
+  border: none;
+  height: 4vh;
+  width: 16vh;
+  text-align: center;
 }

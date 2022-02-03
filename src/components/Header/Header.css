@@ -1,5 +1,10 @@
 .Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Gideon Roman', cursive;
+  margin: 5vh;
+  gap: 1vh;
 }
 
 .Header:hover {
@@ -7,11 +12,17 @@
 }
 
 .Header h1 {
-  margin: 6vh 0 3vh 0;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .Header a {
   text-decoration: none;
   color: #543b25;
-  font-size: 4vh;
+  font-size: 2vh;
+}
+
+.logo {
+  width: 12vw;
+  margin: 0;
 }

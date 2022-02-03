@@ -5,7 +5,7 @@ export default function Filter({ type, setType }) {
   return (
     <div className="Filter">
       <label htmlFor="select" className="filter-label">
-        Filter By Type
+        Creature Type:
       </label>
       <select
         id="select"
