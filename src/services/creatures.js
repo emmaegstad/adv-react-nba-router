@@ -4,7 +4,6 @@ export async function fetchAllCreatures() {
   const food = data.data.food;
   const nonfood = data.data.non_food;
   const all = [...nonfood, ...food];
-  console.log(all);
   return all;
 }
 

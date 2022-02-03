@@ -16,16 +16,14 @@ function App() {
       if (type === 'all') {
         const data = await fetchAllCreatures();
         setCreatures(data);
-        setLoading(false);
       } else if (type === 'food') {
         const data = await fetchFoodCreatures();
         setCreatures(data);
-        setLoading(false);
       } else {
         const data = await fetchNonFoodCreatures();
         setCreatures(data);
-        setLoading(false);
       }
+      setLoading(false);
     };
     fetchData();
   }, [type]);
