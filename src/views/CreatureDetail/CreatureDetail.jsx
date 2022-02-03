@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchCreatureById } from '../../services/creatures';
 
-export default function CreatureDetail() {
+export default function CreatureDetail({ type }) {
   const params = useParams();
   const id = params.id;
   const [loading, setLoading] = useState(true);
@@ -25,11 +25,13 @@ export default function CreatureDetail() {
       <h3 className="detail-title">{creature.name}</h3>
       <img className="detail-image" src={creature.image} alt={name} />
 
-      <p className="detail-effect">
-        <span className="bold">Effects:</span>
-        <p className="detail-effect_cooking">{creature.cooking_effect}</p>
-        <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
-      </p>
+      {creature.cooking_effect && (
+        <p className="detail-effect">
+          <span className="bold">Effects:</span>
+          <p className="detail-effect_cooking">{creature.cooking_effect}</p>
+          <p className="detail-hearts">Restores {creature.hearts_recovered} heart(s)</p>
+        </p>
+      )}
 
       <p className="detail-description">
         <span className="bold">Description:</span>
