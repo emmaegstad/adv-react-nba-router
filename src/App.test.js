@@ -12,5 +12,5 @@ test('renders creature cards', async () => {
   render(<App />);
   await waitForElementToBeRemoved(await screen.findByText('Loading...'), { timeout: 2000 });
   const headings = await screen.findAllByRole('heading');
-  expect(headings).toHaveLength(37);
+  expect(headings).toHaveLength(48);
 });
