@@ -1,23 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import Header from './components/Header/Header';
+import CreatureList from './views/CreatureList/CreatureList';
+import CreatureDetail from './views/CreatureDetail/CreatureDetail';
+import { fetchAllCreatures, fetchFoodCreatures, fetchNonFoodCreatures } from './services/creatures';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [creatures, setCreatures] = useState([]);
+  const [type, setType] = useState('all');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (type === 'all') {
+        const data = await fetchAllCreatures();
+        setCreatures(data);
+      } else if (type === 'food') {
+        const data = await fetchFoodCreatures();
+        setCreatures(data);
+      } else {
+        const data = await fetchNonFoodCreatures();
+        setCreatures(data);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, [type]);
+
+  if (loading) return <p className="loader">Loading...</p>;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+
+        <Switch>
+          <Route exact path="/">
+            <CreatureList creatures={creatures} type={type} setType={setType} />
+          </Route>
+          <Route path="/creature/:id">
+            <CreatureDetail />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
