@@ -1,32 +1,12 @@
 import './App.css';
-import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import Header from './components/Header/Header';
 import CreatureList from './views/CreatureList/CreatureList';
 import CreatureDetail from './views/CreatureDetail/CreatureDetail';
-import { fetchAllCreatures, fetchFoodCreatures, fetchNonFoodCreatures } from './services/creatures';
+import useSetCreatures from './hooks/useSetCreatures';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [creatures, setCreatures] = useState([]);
-  const [type, setType] = useState('all');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (type === 'all') {
-        const data = await fetchAllCreatures();
-        setCreatures(data);
-      } else if (type === 'food') {
-        const data = await fetchFoodCreatures();
-        setCreatures(data);
-      } else {
-        const data = await fetchNonFoodCreatures();
-        setCreatures(data);
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, [type]);
+  const [loading, creatures, type, setType] = useSetCreatures();
 
   if (loading) return <p className="loader">Loading...</p>;
 
